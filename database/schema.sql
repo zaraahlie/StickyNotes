@@ -1,15 +1,17 @@
 CREATE TABLE projects (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
-    description TEXT
-    FOREIGN KEY (author_id) REFERENCES author(id)
+    description TEXT,
+    author_id INTEGER NOT NULL,
+    FOREIGN KEY (author_id) REFERENCES authors(id)
 ); 
 
 CREATE TABLE authors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
+    user_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
-)
+);
 
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
